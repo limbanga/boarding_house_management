@@ -1,5 +1,2 @@
 <?php
-require_once 'app/controllers/RoomController.php';
-
-$controller = new RoomController();
-$controller->index();
+require_once './app/core/Router.php';
