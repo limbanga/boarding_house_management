@@ -10,7 +10,7 @@ class RoomController {
 
     public function index() {
         $rooms = $this->roomModel->getAllRooms();
-        include __DIR__ . '/../views/rooms.php';
+        include __DIR__ . '/../views/rooms/index.php';
     }
 
     public function addRoom() {
