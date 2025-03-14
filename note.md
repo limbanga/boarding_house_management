@@ -1,23 +1,19 @@
+```sh
 /boarding_house_management  
 │-- /app  
-│   │-- /controllers (Chứa các file xử lý logic)  
+│   │-- /controllers  
 │   │   │-- RoomController.php  
-│   │   │-- TenantController.php  
-│   │   │-- InvoiceController.php  
-│   │-- /models (Chứa các file kết nối database)  
+│   │-- /models  
 │   │   │-- Room.php  
-│   │   │-- Tenant.php  
-│   │   │-- Invoice.php  
-│   │-- /views (Chứa giao diện hiển thị)  
+│   │-- /views  
 │   │   │-- rooms.php  
-│   │   │-- tenants.php  
-│   │   │-- invoices.php  
-│   │-- /core (Chứa file cốt lõi cho MVC)  
+│   │-- /core  
 │   │   │-- Database.php  
-│   │   │-- Controller.php  
-│   │   │-- Model.php  
-│   │   │-- View.php  
-│-- /public (Chứa tài nguyên như CSS, JS, hình ảnh)  
-│-- /config (Chứa file cấu hình kết nối database)  
-│-- index.php (file điều hướng chính)  
-│-- .htaccess (Viết rules để URL đẹp hơn)  
+│-- /public  
+│   │-- /js  
+│   │   │-- rooms.js (Xử lý AJAX)  
+│-- /config  
+│-- index.php  
+│-- api.php (Xử lý AJAX request)
+
+```
