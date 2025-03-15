@@ -13,6 +13,10 @@ class RoomController {
         include __DIR__ . '/../views/rooms/index.php';
     }
 
+    public function create() {
+        include __DIR__ . '/../views/rooms/create.php';
+    }
+    
     public function addRoom() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $name = $_POST['name'];

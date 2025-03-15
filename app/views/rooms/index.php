@@ -7,29 +7,9 @@ ob_start();
 <div class="container mt-5">
     <h2 class="text-center">Quản lý phòng trọ</h2>
 
-    <!-- Form thêm/sửa phòng -->
-    <form id="roomForm">
-        <input type="hidden" id="room_id">
-        <div class="mb-3">
-            <label>Tên phòng</label>
-            <input type="text" class="form-control" id="room_name" required>
-        </div>
-        <div class="mb-3">
-            <label>Giá thuê</label>
-            <input type="number" class="form-control" id="room_price" required>
-        </div>
-        <div class="mb-3">
-            <label>Trạng thái</label>
-            <select class="form-control" id="room_status">
-                <option value="1">Đang thuê</option>
-                <option value="0">Trống</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Lưu</button>
-    </form>
+    <a href="/room/create" class="btn btn-success mb-3">Thêm phòng mới</a>
 
-    <!-- Bảng danh sách phòng -->
-    <table class="table table-bordered mt-4">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>ID</th>
@@ -39,7 +19,7 @@ ob_start();
                 <th>Hành động</th>
             </tr>
         </thead>
-        <tbody id="roomTable">
+        <tbody>
             <?php foreach ($rooms as $room): ?>
                 <tr>
                     <td><?= $room['id']; ?></td>
@@ -47,8 +27,8 @@ ob_start();
                     <td><?= number_format($room['price']); ?> VND</td>
                     <td><?= $room['status'] == 1 ? 'Đang thuê' : 'Trống'; ?></td>
                     <td>
-                        <button class="btn btn-warning btn-edit" data-id="<?= $room['id']; ?>" data-name="<?= $room['name']; ?>" data-price="<?= $room['price']; ?>" data-status="<?= $room['status']; ?>">Sửa</button>
-                        <button class="btn btn-danger btn-delete" data-id="<?= $room['id']; ?>">Xóa</button>
+                        <button class="btn btn-warning btn-edit">Sửa</button>
+                        <button class="btn btn-danger btn-delete">Xóa</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
