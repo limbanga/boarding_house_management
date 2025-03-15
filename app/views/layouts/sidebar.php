@@ -30,6 +30,6 @@
         <a class="nav-link">Yêu cầu sửa chữa</a>
       </li>
     </ul>
-    <a href="/?controller=logout" class="btn btn-danger mt-auto mb-4"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+    <a href="/user/logout" class="btn btn-danger mt-auto mb-4"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
   </div>
 </nav>
