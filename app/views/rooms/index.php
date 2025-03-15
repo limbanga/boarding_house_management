@@ -6,7 +6,7 @@ ob_start();
 ?>
 <div class="container mt-5">
     <h2 class="text-center">Quản lý Phòng</h2>
-    <a href="index.php?controller=room&action=create" class="btn btn-primary mb-3">Thêm phòng</a>
+    <a href="/room/create" class="btn btn-primary mb-3">Thêm phòng</a>
 
     <table class="table table-bordered">
         <thead>
