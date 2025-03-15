@@ -14,17 +14,15 @@ class RoomController {
     }
 
     public function create() {
-        include __DIR__ . '/../views/rooms/create.php';
-    }
-    
-    public function addRoom() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $name = $_POST['name'];
-            $price = $_POST['price'];
-            $status = $_POST['status'];
-            $this->roomModel->addRoom($name, $price, $status);
-            echo json_encode(["success" => true]);
+            $this->roomModel->addRoom([
+                'name' => $_POST['name'],
+                'price' => $_POST['price'],
+                'status' => $_POST['status']
+            ]);
+            header("Location: /room");
         }
+        include __DIR__ . '/../views/rooms/create.php';
     }
 
     public function updateRoom() {

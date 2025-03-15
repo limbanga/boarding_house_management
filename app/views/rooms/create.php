@@ -7,18 +7,18 @@ ob_start();
 <div class="container mt-5">
     <h2 class="text-center">Thêm phòng trọ</h2>
 
-    <form id="roomForm" action="process_add_room.php" method="POST">
+    <form id="roomForm" method="POST">
         <div class="mb-3">
             <label>Tên phòng</label>
-            <input type="text" class="form-control" name="room_name" required>
+            <input type="text" class="form-control" name="name" required>
         </div>
         <div class="mb-3">
             <label>Giá thuê</label>
-            <input type="number" class="form-control" name="room_price" required>
+            <input type="number" class="form-control" name="price" required>
         </div>
         <div class="mb-3">
             <label>Trạng thái</label>
-            <select class="form-control" name="room_status">
+            <select class="form-control" name="status">
                 <option value="1">Đang thuê</option>
                 <option value="0">Trống</option>
             </select>
