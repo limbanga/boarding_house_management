@@ -1,50 +1,48 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Thêm khách hàng</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-    <div class="container mt-5">
-        <h2>Thêm khách hàng</h2>
-        <form id="addTenantForm">
-            <div class="mb-3">
-                <label class="form-label">Tên khách hàng</label>
-                <input type="text" class="form-control" name="name" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Số điện thoại</label>
-                <input type="text" class="form-control" name="phone" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Thêm khách hàng</button>
-        </form>
-        <div id="message" class="mt-3"></div>
-    </div>
+<?php
+$title = "Thêm khách thuê";
 
-    <script>
-        $(document).ready(function() {
-            $("#addTenantForm").submit(function(event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "/tenant/store",
-                    data: $(this).serialize(),
-                    success: function(response) {
-                        $("#message").html('<div class="alert alert-success">Thêm thành công!</div>');
-                        $("#addTenantForm")[0].reset();
-                    },
-                    error: function() {
-                        $("#message").html('<div class="alert alert-danger">Lỗi! Không thể thêm khách hàng.</div>');
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+ob_start();
+?>
+
+<div class="container">
+    <h2>Thêm Khách Thuê Mới</h2>
+    <form action="/tenant/store" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Tên Khách Thuê</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">Số Điện Thoại</label>
+            <input type="text" class="form-control" id="phone" name="phone" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="room_id" class="form-label">Phòng</label>
+            <input type="text" class="form-control" id="room_id" name="room_id" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="start_date" class="form-label">Ngày Bắt Đầu</label>
+            <input type="date" class="form-control" id="start_date" name="start_date" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="end_date" class="form-label">Ngày Kết Thúc</label>
+            <input type="date" class="form-control" id="end_date" name="end_date">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Thêm khách thuê</button>
+        <a href="/tenant" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>
+
+<?php
+$content = ob_get_clean();
+require_once __DIR__ . '/../layouts/index.php';
+?>

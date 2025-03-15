@@ -17,20 +17,21 @@ class TenantController {
         include __DIR__ . '/../views/tenants/create.php';
     }
 
-    // public function store() {
-    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //         $name = $_POST['name'];
-    //         $phone = $_POST['phone'];
-    //         $email = $_POST['email'];
-
-    //         $tenantModel = new Tenant();
-    //         if ($tenantModel->create($name, $phone, $email)) {
-    //             http_response_code(200);
-    //         } else {
-    //             http_response_code(500);
-    //         }
-    //     }
-    // }
+    public function store()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = [
+                'name' => $_POST['name'],
+                'phone' => $_POST['phone'],
+                'email' => $_POST['email'],
+                'room_id' => $_POST['room_id'],
+                'start_date' => $_POST['start_date'],
+                'end_date' => $_POST['end_date'],
+            ];
+            $this->tenantModel->createTenant($data);
+            header('Location: /tenant/index');
+        }
+    }
 
     public function delete() {
         if (isset($_GET["id"])) {
