@@ -30,3 +30,14 @@ CREATE TABLE tenants (
 INSERT INTO tenants (name, phone, email, room_id, start_date, end_date) VALUES ('Nguyễn Văn A', '0987654321', 'nguyenvana@example.com', 1, '2023-01-01', '2023-12-31');
 INSERT INTO tenants (name, phone, email, room_id, start_date, end_date) VALUES ('Trần Thị B', '0912345678', 'tranthib@example.com', 2, '2023-02-01', '2023-11-30');
 INSERT INTO tenants (name, phone, email, room_id, start_date, end_date) VALUES ('Lê Văn C', '0901234567', 'levanc@example.com', 3, '2023-03-01', '2023-10-31');
+
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'staff', 'tenant') NOT NULL DEFAULT 'tenant',
+    phone VARCHAR(20) NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
