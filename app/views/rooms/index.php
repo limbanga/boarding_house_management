@@ -5,37 +5,33 @@ $title = "Danh sách phòng trọ";
 ob_start();
 ?>
 <div class="container mt-5">
-    <h2 class="text-center">Quản lý phòng trọ</h2>
-
-    <a href="/room/create" class="btn btn-success mb-3">Thêm phòng mới</a>
+    <h2 class="text-center">Quản lý Phòng</h2>
+    <a href="index.php?controller=room&action=create" class="btn btn-primary mb-3">Thêm phòng</a>
 
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Tên phòng</th>
-                <th>Giá thuê</th>
+                <th>Tên</th>
+                <th>Giá</th>
                 <th>Trạng thái</th>
+                <th>Diện tích</th>
+                <th>Số người tối đa</th>
                 <th>Hành động</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($rooms as $room): ?>
+            <?php foreach ($rooms as $room) : ?>
                 <tr>
                     <td><?= $room['id']; ?></td>
                     <td><?= $room['name']; ?></td>
                     <td><?= number_format($room['price']); ?> VND</td>
-                    <td><?= $room['status'] == 1 ? 'Đang thuê' : 'Trống'; ?></td>
+                    <td><?= ucfirst($room['status']); ?></td>
+                    <td><?= $room['area']; ?> m²</td>
+                    <td><?= $room['max_people']; ?></td>
                     <td>
-                        <a href="/room/update/?id=<?= $room['id']?>" class="btn btn-warning btn-edit">
-                            Sửa
-                        </a>
-                        <form method="POST" action="/room/delete" class="d-inline">
-                            <input type="hidden" name="id" value="<?= $room['id'] ?>">
-                        <button type="submit" class="btn btn-danger">
-                            Xóa
-                        </button>
-                        </form>
+                        <a href="index.php?controller=room&action=edit&id=<?= $room['id']; ?>" class="btn btn-warning">Sửa</a>
+                        <a href="index.php?controller=room&action=delete&id=<?= $room['id']; ?>" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn?')">Xóa</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

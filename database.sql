@@ -5,15 +5,21 @@ USE boarding_house;
 
 CREATE TABLE rooms (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    price INT NOT NULL,
-    status TINYINT(1) DEFAULT 0
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    status ENUM('trong', 'dang_thue', 'dang_sua') NOT NULL DEFAULT 'trong',
+    area FLOAT NOT NULL,
+    max_people INT NOT NULL,
+    furniture TEXT,
+    image VARCHAR(255) NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
-INSERT INTO rooms (name, price, status) VALUES ('Phòng A101', 2500000, 1);
-INSERT INTO rooms (name, price, status) VALUES ('Phòng B202', 3000000, 0);
-INSERT INTO rooms (name, price, status) VALUES ('Phòng C303', 3500000, 1);
+INSERT INTO rooms (name, price, status, area, max_people, furniture, image) VALUES ('Phòng 1', 1000000, 'trong', 20, 2, 'Giường, tủ, bàn, ghế', 'room1.jpg');
+INSERT INTO rooms (name, price, status, area, max_people, furniture, image) VALUES ('Phòng 2', 1500000, 'trong', 25, 3, 'Giường, tủ, bàn, ghế', 'room2.jpg');
+INSERT INTO rooms (name, price, status, area, max_people, furniture, image) VALUES ('Phòng 3', 2000000, 'trong', 30, 4, 'Giường, tủ, bàn, ghế', 'room3.jpg');
+INSERT INTO rooms (name, price, status, area, max_people, furniture, image) VALUES ('Phòng 4', 2500000, 'trong', 35, 5, 'Giường, tủ, bàn, ghế', 'room4.jpg');
 
 
 CREATE TABLE tenants (
