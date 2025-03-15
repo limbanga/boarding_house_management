@@ -27,8 +27,15 @@ ob_start();
                     <td><?= number_format($room['price']); ?> VND</td>
                     <td><?= $room['status'] == 1 ? 'Đang thuê' : 'Trống'; ?></td>
                     <td>
-                        <button class="btn btn-warning btn-edit">Sửa</button>
-                        <button class="btn btn-danger btn-delete">Xóa</button>
+                        <a href="/room/update/?id=<?= $room['id']?>" class="btn btn-warning btn-edit">
+                            Sửa
+                        </a>
+                        <form method="POST" action="/room/delete" class="d-inline">
+                            <input type="hidden" name="id" value="<?= $room['id'] ?>">
+                        <button type="submit" class="btn btn-danger">
+                            Xóa
+                        </button>
+                        </form>
                     </td>
                 </tr>
             <?php endforeach; ?>

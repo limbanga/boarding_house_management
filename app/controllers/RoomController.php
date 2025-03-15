@@ -25,7 +25,7 @@ class RoomController {
         include __DIR__ . '/../views/rooms/create.php';
     }
 
-    public function updateRoom() {
+    public function update() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $id = $_POST['id'];
             $name = $_POST['name'];
@@ -34,13 +34,18 @@ class RoomController {
             $this->roomModel->updateRoom($id, $name, $price, $status);
             echo json_encode(["success" => true]);
         }
+        
+        $id = $_GET['id'];
+        $room = $this->roomModel->getRoomById($id);
+
+        include __DIR__ . '/../views/rooms/create.php';
     }
 
-    public function deleteRoom() {
+    public function delete() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $id = $_POST['id'];
             $this->roomModel->deleteRoom($id);
-            echo json_encode(["success" => true]);
+            header("Location: /room");
         }
     }
 }

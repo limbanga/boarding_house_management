@@ -10,17 +10,18 @@ ob_start();
     <form id="roomForm" method="POST">
         <div class="mb-3">
             <label>Tên phòng</label>
-            <input type="text" class="form-control" name="name" required>
+            <input type="text" class="form-control" name="name" required value="<?= $room['name'] ?? '' ?>">
         </div>
         <div class="mb-3">
             <label>Giá thuê</label>
-            <input type="number" class="form-control" name="price" required>
+            <input type="number" class="form-control" name="price" required value="<?= $room['price'] ?? '' ?>">
         </div>
         <div class="mb-3">
             <label>Trạng thái</label>
             <select class="form-control" name="status">
-                <option value="1">Đang thuê</option>
-                <option value="0">Trống</option>
+                <option value="">Chọn trạng thái</option>
+                <option value="1" <?= isset($room['status']) && $room['status'] == 1 ? 'selected' : '' ?>>Đang thuê</option>
+                <option value="0" <?= isset($room['status']) && $room['status'] == 0 ? 'selected' : '' ?>>Trống</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Thêm phòng</button>
