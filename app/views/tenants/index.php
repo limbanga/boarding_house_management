@@ -26,7 +26,7 @@ ob_start();
                 <td><?= $tenant['email'] ?></td>
                 <td><?= $tenant['room_id'] ?></td>
                 <td>
-                    <a href="index.php?controller=tenant&action=delete&id=<?= $tenant['id'] ?>" class="btn btn-danger btn-sm">Xóa</a>
+                    <a href="/tenant/delete&id=<?= $tenant['id'] ?>" class="btn btn-danger btn-sm">Xóa</a>
                 </td>
             </tr>
         <?php endforeach; ?>

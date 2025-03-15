@@ -36,7 +36,7 @@ class TenantController {
     public function delete() {
         if (isset($_GET["id"])) {
             $this->tenantModel->deleteTenant($_GET["id"]);
-            header("Location: index.php?controller=tenant&action=index");
+            header("Location: /tenant/index");
         }
     }
 }
