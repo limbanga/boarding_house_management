@@ -8,7 +8,7 @@ ob_start();
 
 <div class="container">
     <h2>Danh sách khách thuê</h2>
-    <a href="views/tenants/create.php" class="btn btn-primary">Thêm khách thuê</a>
+    <a href="/tenant/create" class="btn btn-primary">Thêm khách thuê</a>
     <table class="table">
         <tr>
             <th>ID</th>
