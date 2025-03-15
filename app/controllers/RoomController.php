@@ -1,11 +1,11 @@
 <?php
-require_once __DIR__ . '/../models/Room.php';
+require_once __DIR__ . '/../models/RoomModel.php';
 
 class RoomController {
     private $roomModel;
 
     public function __construct() {
-        $this->roomModel = new Room();
+        $this->roomModel = new RoomModel();
     }
 
     public function index() {
