@@ -49,6 +49,8 @@ class BaseModel
         $values[] = $id;
 
         $sql = "UPDATE $table SET $columns WHERE id = ?";
+        echo json_encode($data);
+        // die($sql);
         return $this->query($sql, $values);
     }
 

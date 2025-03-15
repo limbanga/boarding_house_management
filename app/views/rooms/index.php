@@ -30,7 +30,7 @@ ob_start();
                     <td><?= $room['area']; ?> m²</td>
                     <td><?= $room['max_people']; ?></td>
                     <td>
-                        <a href="index.php?controller=room&action=edit&id=<?= $room['id']; ?>" class="btn btn-warning">Sửa</a>
+                        <a href="/room/update?id=<?= $room['id']; ?>" class="btn btn-warning">Sửa</a>
                         <a href="index.php?controller=room&action=delete&id=<?= $room['id']; ?>" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn?')">Xóa</a>
                     </td>
                 </tr>
