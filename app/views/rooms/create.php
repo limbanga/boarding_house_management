@@ -1,12 +1,10 @@
 <?php
-$title = isset($room) ? "Chỉnh sửa phòng" : "Thêm phòng";
+$title = isset($room) ? "Chỉnh sửa phòng trọ" : "Thêm phòng trọ";
 
 // Nội dung của trang
 ob_start();
 ?>
-<div class="container mt-5">
-    <h2><?= isset($room) ? "Chỉnh sửa phòng" : "Thêm phòng trọ" ?></h2>
-
+<div class="container">
     <?php if (!empty($_SESSION['errors'])): ?>
         <div class="alert alert-danger">
             <ul>
@@ -64,30 +62,6 @@ ob_start();
                     <div class="mb-3 col-3">
                         <label>Diện tích (m²)</label>
                         <input type="number" class="form-control" name="area" required value="<?= $room['area'] ?? '' ?>">
-                    </div>
-
-                    <div class="mb-3 col-12">
-                        <label>Trạng thái</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" id="status_trong" value="trong" <?= isset($room['status']) && $room['status'] == 0 ? 'checked' : '' ?>>
-                            <label class="form-check-label" for="status_trong">
-                                Trống
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" id="status_dang_sua" value="dang_sua" <?= isset($room['status']) && $room['status'] == 2 ? 'checked' : '' ?>>
-                            <label class="form-check-label" for="status_dang_sua">
-                                Đang sửa chữa
-                            </label>
-                        </div>
-                        <?php if (isset($room)): ?>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="status" id="status_dang_thue" value="dang_thue" <?= isset($room['status']) && $room['status'] == 1 ? 'checked' : '' ?>>
-                                <label class="form-check-label" for="status_dang_thue">
-                                    Đang thuê
-                                </label>
-                            </div>
-                        <?php endif; ?>
                     </div>
                 </div>
 
@@ -162,5 +136,5 @@ ob_start();
 </div>
 <?php
 $content = ob_get_clean();
-require_once __DIR__ . '/../layouts/index.php';
+require_once __DIR__ . '/../layouts/admin.php';
 ?>
