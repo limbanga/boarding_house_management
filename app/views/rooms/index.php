@@ -26,7 +26,21 @@ ob_start();
                     <td><?= $room['id']; ?></td>
                     <td><?= $room['name']; ?></td>
                     <td><?= number_format($room['price']); ?> VND</td>
-                    <td><?= ucfirst($room['status']); ?></td>
+                    <td>
+                        <?php 
+                        switch ($room['status']) {
+                            case 'dang_thue':
+                                echo 'Đang thuê';
+                                break;
+                            case 'dang_sua':
+                                echo 'Đang sửa chữa';
+                                break;
+                            default:    
+                                echo 'Trống';
+                                break;
+                        } 
+                        ?>
+                    </td>
                     <td><?= $room['area']; ?> m²</td>
                     <td><?= $room['max_people']; ?></td>
                     <td>
