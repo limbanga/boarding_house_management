@@ -21,7 +21,7 @@
         <a class="nav-link" href="/tenant/index">Quản lý khách hàng</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link">Hợp đồng</a>
+        <a class="nav-link" href="/contract/index">Hợp đồng</a>
       </li>
       <li class="nav-item">
         <a class="nav-link">Hóa đơn & thanh toán</a>

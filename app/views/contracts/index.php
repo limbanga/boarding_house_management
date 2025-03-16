@@ -25,8 +25,8 @@ ob_start();
             <?php foreach ($contracts as $contract) : ?>
                 <tr>
                     <td><?= $contract['id']; ?></td>
-                    <td><?= $contract['room_name']; ?></td>
-                    <td><?= $contract['tenant_name']; ?></td>
+                    <td><?= $contract['room_id']; ?></td>
+                    <td><?= $contract['tenant_id']; ?></td>
                     <td><?= date("d/m/Y", strtotime($contract['start_date'])); ?></td>
                     <td><?= date("d/m/Y", strtotime($contract['end_date'])); ?></td>
                     <td><?= number_format($contract['deposit']); ?> VND</td>
