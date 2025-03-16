@@ -4,9 +4,8 @@ $title = "Danh sách phòng trọ";
 // Nội dung của trang
 ob_start();
 ?>
-<div class="container mt-5">
-    
-    <h2 class="text-center">Quản lý Phòng</h2>
+<div class="container">
+
     <a href="/room/create" class="btn btn-primary mb-3">Thêm phòng</a>
 
     <table class="table table-bordered">
@@ -28,7 +27,8 @@ ob_start();
                     <td><?= $room['name']; ?></td>
                     <td><?= number_format($room['price']); ?> VND</td>
                     <td>
-                        <?php 
+
+                        <?php
                         switch ($room['status']) {
                             case 'dang_thue':
                                 echo 'Đang thuê';
@@ -36,11 +36,12 @@ ob_start();
                             case 'dang_sua':
                                 echo 'Đang sửa chữa';
                                 break;
-                            default:    
+                            default:
                                 echo 'Trống';
                                 break;
-                        } 
+                        }
                         ?>
+
                     </td>
                     <td><?= $room['area']; ?> m²</td>
                     <td><?= $room['max_people']; ?></td>
@@ -55,5 +56,5 @@ ob_start();
 </div>
 <?php
 $content = ob_get_clean();
-require_once __DIR__ . '/../layouts/index.php';
+require_once __DIR__ . '/../layouts/admin.php';
 ?>
