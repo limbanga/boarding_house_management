@@ -12,7 +12,7 @@
         <a class="nav-link active" aria-current="page" href="#">Thống kê</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/hostels/index">Quản lý khu trọ</a>
+        <a class="nav-link" href="/dormitory/index">Quản lý khu trọ</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/room/index">Quản lý phòng</a>
